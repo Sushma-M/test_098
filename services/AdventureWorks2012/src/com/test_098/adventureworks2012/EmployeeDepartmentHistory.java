@@ -37,9 +37,9 @@ public class EmployeeDepartmentHistory implements Serializable {
     private Date endDate;
     @Type(type = "DateTime")
     private LocalDateTime modifiedDate;
+    private Department department;
     private Shift shift;
     private Employee employee;
-    private Department department;
 
     @Id
     @Column(name = "`BusinessEntityID`", nullable = false, scale = 0, precision = 10)
@@ -100,6 +100,20 @@ public class EmployeeDepartmentHistory implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`DepartmentID`", referencedColumnName = "`DepartmentID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_8nq5qiu0bbvv64nqdx7kuqfj3`"))
+    public Department getDepartment() {
+        return this.department;
+    }
+
+    public void setDepartment(Department department) {
+        if(department != null) {
+            this.departmentId = department.getDepartmentId();
+        }
+
+        this.department = department;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`ShiftID`", referencedColumnName = "`ShiftID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_2j5nbggxw6mfvjoh0k94xok7k`"))
     public Shift getShift() {
         return this.shift;
@@ -125,20 +139,6 @@ public class EmployeeDepartmentHistory implements Serializable {
         }
 
         this.employee = employee;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`DepartmentID`", referencedColumnName = "`DepartmentID`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_8nq5qiu0bbvv64nqdx7kuqfj3`"))
-    public Department getDepartment() {
-        return this.department;
-    }
-
-    public void setDepartment(Department department) {
-        if(department != null) {
-            this.departmentId = department.getDepartmentId();
-        }
-
-        this.department = department;
     }
 
     @Override

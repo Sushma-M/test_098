@@ -840,6 +840,23 @@
       "cardinality" : "ManyToOne",
       "columnsUniqueKey" : false,
       "composite" : false,
+      "fieldName" : "department",
+      "mappings" : [ {
+        "sourceColumn" : "DepartmentID",
+        "targetColumn" : "DepartmentID"
+      } ],
+      "name" : "FK_8nq5qiu0bbvv64nqdx7kuqfj3",
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "EmployeeDepartmentHistory",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "Department",
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "columnsUniqueKey" : false,
+      "composite" : false,
       "fieldName" : "shift",
       "mappings" : [ {
         "sourceColumn" : "ShiftID",
@@ -869,23 +886,6 @@
       "sourceTable" : "EmployeeDepartmentHistory",
       "targetColumnsUniqueKey" : false,
       "targetTable" : "Employee",
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fieldName" : "department",
-      "mappings" : [ {
-        "sourceColumn" : "DepartmentID",
-        "targetColumn" : "DepartmentID"
-      } ],
-      "name" : "FK_8nq5qiu0bbvv64nqdx7kuqfj3",
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "EmployeeDepartmentHistory",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "Department",
       "virtual" : false
     } ],
     "schema" : null,

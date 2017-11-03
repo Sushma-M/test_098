@@ -48,5 +48,5 @@
     "reason" : null,
     "message" : null
   },
-  "readOnly" : true
+  "readOnly" : false
 }
