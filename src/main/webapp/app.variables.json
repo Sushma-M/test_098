@@ -23,6 +23,17 @@
     "operation" : "gotoPage",
     "pageName" : "Main"
   },
+  "goToPage_wwwwwwww" : {
+    "_id" : "wm-goToPage_wwwwwwww-wm.NavigationVariable-1514463851429",
+    "name" : "goToPage_wwwwwwww",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "wwwwwwww",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "supportedLocale" : {
     "_id" : "wm-wm.Variable1402640443182",
     "name" : "supportedLocale",
