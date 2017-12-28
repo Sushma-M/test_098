@@ -20,6 +20,13 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
+                <directory>services/salesdb/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
                 <directory>services/securityService/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
@@ -111,6 +118,7 @@
                         <configuration>
                             <sources>
                                 <source>services/AdventureWorks2012/src</source>
+                                <source>services/salesdb/src</source>
                                 <source>services/securityService/src</source>
                                 <source>services/test_0981/src</source>
                             </sources>
@@ -285,6 +293,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.38</version>
         </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.3.3</version>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -315,6 +328,8 @@
         <profile.props.file>development.properties</profile.props.file>
         <spring.version>4.3.9.RELEASE</spring.version>
         <spring.security.version>4.1.2.RELEASE</spring.security.version>
-        <wavemaker.studio.version>9.0.1</wavemaker.studio.version>
+        <wavemaker.studio.version>9.1.0</wavemaker.studio.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.lib.directory>${basedir}/lib</project.lib.directory>
     </properties>
 </project>

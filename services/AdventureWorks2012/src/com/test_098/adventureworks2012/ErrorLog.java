@@ -10,9 +10,11 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
@@ -35,6 +37,7 @@ public class ErrorLog implements Serializable {
     @Type(type = "DateTime")
     private LocalDateTime errorTime;
     private String userName;
+    private Table8 table8;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -119,6 +122,14 @@ public class ErrorLog implements Serializable {
         this.userName = userName;
     }
 
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "errorLog")
+    public Table8 getTable8() {
+        return this.table8;
+    }
+
+    public void setTable8(Table8 table8) {
+        this.table8 = table8;
+    }
 
     @Override
     public boolean equals(Object o) {

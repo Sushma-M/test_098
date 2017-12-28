@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.test_098.adventureworks2012.ErrorLog;
+import com.test_098.adventureworks2012.Table8;
 
 
 /**
@@ -38,6 +40,10 @@ public class ErrorLogServiceImpl implements ErrorLogService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ErrorLogServiceImpl.class);
 
+    @Lazy
+    @Autowired
+	@Qualifier("AdventureWorks2012.Table8Service")
+	private Table8Service table8Service;
 
     @Autowired
     @Qualifier("AdventureWorks2012.ErrorLogDao")
@@ -52,6 +58,12 @@ public class ErrorLogServiceImpl implements ErrorLogService {
 	public ErrorLog create(ErrorLog errorLog) {
         LOGGER.debug("Creating a new ErrorLog with information: {}", errorLog);
         ErrorLog errorLogCreated = this.wmGenericDao.create(errorLog);
+        if(errorLogCreated.getTable8() != null) {
+            Table8 table8 = errorLogCreated.getTable8();
+            LOGGER.debug("Creating a new child Table8 with information: {}", table8);
+            table8.setErrorLog(errorLogCreated);
+            table8Service.create(table8);
+        }
         return errorLogCreated;
     }
 
@@ -133,6 +145,14 @@ public class ErrorLogServiceImpl implements ErrorLogService {
     }
 
 
+    /**
+	 * This setter method should only be used by unit tests
+	 *
+	 * @param service Table8Service instance
+	 */
+	protected void setTable8Service(Table8Service service) {
+        this.table8Service = service;
+    }
 
 }
 

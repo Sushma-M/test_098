@@ -32,6 +32,9 @@
   }, {
     "table" : "Shift",
     "schema" : null
+  }, {
+    "table" : "TABLE8",
+    "schema" : null
   } ],
   "schemaFilter" : [ ],
   "impersonateUser" : false,
