@@ -20,13 +20,6 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
-                <directory>services/salesdb/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
                 <directory>services/securityService/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
@@ -118,7 +111,6 @@
                         <configuration>
                             <sources>
                                 <source>services/AdventureWorks2012/src</source>
-                                <source>services/salesdb/src</source>
                                 <source>services/securityService/src</source>
                                 <source>services/test_0981/src</source>
                             </sources>
